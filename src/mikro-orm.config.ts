@@ -8,10 +8,10 @@ import { User } from './users/user.entity';
 
 export default defineConfig({
   driver: PostgreSqlDriver,
-  host: '0.0.0.0',
-  user: 'root',
-  dbName: 'test-mikro',
-  password: '123',
+  // host: '0.0.0.0',
+  // user: 'root',
+  dbName: 'postgres',
+  // password: '123',
   entities: [BaseEntity, User, Book, Tag],
   debug: true,
   highlighter: new SqlHighlighter(),
@@ -28,6 +28,5 @@ export default defineConfig({
     snapshot: true, // save snapshot when creating new migrations
     emit: 'ts', // migration generation mode
     generator: TSMigrationGenerator, // migration generator, e.g. to allow custom formatting
-
-  }
+  },
 });

@@ -27,6 +27,9 @@ export class Book extends BaseEntity {
   @ManyToMany({ entity: () => Tag, inversedBy: 'books' })
   tags = new Collection<Tag>(this);
 
+  @Property({ type: t.boolean, default: false })
+  isPublished = false;
+
   constructor(title: string, content: string, author: User) {
     super();
     this.title = title;
