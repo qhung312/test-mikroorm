@@ -5,6 +5,7 @@ import { BaseEntity } from './common/database/base.entity';
 import { Book } from './books/book.entity';
 import { Tag } from './tags/tag.entity';
 import { User } from './users/user.entity';
+import { LongBook } from 'books/long-book.entity';
 
 export default defineConfig({
   driver: PostgreSqlDriver,
@@ -12,7 +13,7 @@ export default defineConfig({
   // user: 'root',
   dbName: 'postgres',
   // password: '123',
-  entities: [BaseEntity, User, Book, Tag],
+  entities: [BaseEntity, User, Book, Tag, LongBook],
   debug: true,
   highlighter: new SqlHighlighter(),
   extensions: [Migrator],

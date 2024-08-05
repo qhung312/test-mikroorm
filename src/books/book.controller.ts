@@ -45,4 +45,9 @@ export class BookController {
   public async deleteBook(@Param('id') id: string) {
     return this.bookService.deleteBook(Number.parseInt(id, 10));
   }
+
+  @Get('long')
+  public async getLongBooks() {
+    return this.bookService.getLongBooks();
+  }
 }

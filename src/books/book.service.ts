@@ -3,19 +3,18 @@ import { Injectable } from '@nestjs/common';
 import {
   EntityManager,
   EntityRepository,
-  LoadStrategy,
   MikroORM,
 } from '@mikro-orm/postgresql';
 import { Book } from './book.entity';
 import { CreateBookDto } from './create-book.dto';
 import { EditBookDto } from './edit-book.dto';
+import { LongBook } from './long-book.entity';
+import { BookRepository } from './book.repository';
 
 @Injectable()
 export class BookService {
   constructor(
-    @InjectRepository(Book)
-    private readonly bookRepository: EntityRepository<Book>,
-    private readonly orm: MikroORM,
+    private readonly bookRepository: BookRepository,
     private readonly em: EntityManager,
   ) {}
 
@@ -71,5 +70,9 @@ export class BookService {
 
   public async deleteBook(id: number): Promise<void> {
     await this.em.remove(this.em.getReference(Book, id)).flush();
+  }
+
+  public async getLongBooks(): Promise<LongBook[]> {
+    return this.bookRepository.findLongBooks();
   }
 }

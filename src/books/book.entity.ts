@@ -1,6 +1,7 @@
 import {
   Collection,
   Entity,
+  EntityRepositoryType,
   ManyToMany,
   ManyToOne,
   Property,
@@ -9,9 +10,12 @@ import {
 import { BaseEntity } from 'common/database/base.entity';
 import { Tag } from 'tags/tag.entity';
 import { User } from 'users/user.entity';
+import { BookRepository } from './book.repository';
 
-@Entity()
+@Entity({ repository: () => BookRepository })
 export class Book extends BaseEntity {
+  [EntityRepositoryType]: BookRepository;
+
   @Property({ type: t.text, index: true })
   title!: string;
 
