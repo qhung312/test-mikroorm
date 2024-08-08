@@ -9,10 +9,10 @@ import { LongBook } from 'books/long-book.entity';
 
 export default defineConfig({
   driver: PostgreSqlDriver,
-  // host: '0.0.0.0',
-  // user: 'root',
+  host: 'db',
+  user: 'postgres',
   dbName: 'postgres',
-  // password: '123',
+  password: 'postgres',
   entities: [BaseEntity, User, Book, Tag, LongBook],
   debug: true,
   highlighter: new SqlHighlighter(),
