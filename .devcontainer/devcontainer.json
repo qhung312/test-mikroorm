@@ -22,6 +22,6 @@
   "mounts": [
     "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/fessiordev/.ssh,readonly,type=bind"
   ],
-  "postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder} && sudo chown -R fessiordev:fessiordev node_modules && yarn install",
+  "postStartCommand": "./.devcontainer/postStartCommand.sh",
   "remoteUser": "fessiordev"
 }
