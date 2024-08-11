@@ -10,7 +10,7 @@ git config --global --add safe.directory "${WORKSPACE_FOLDER}"
 git config --global commit.gpgsign false
 
 # Set permissions for node_modules, because this data comes from a volume
-sudo chown -R fessiordev:fessiordev node_modules
+sudo chown -R node:node node_modules
 
 # Install dependencies
 yarn install

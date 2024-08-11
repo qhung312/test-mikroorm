@@ -20,8 +20,8 @@
     }
   },
   "mounts": [
-    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/fessiordev/.ssh,readonly,type=bind"
+    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/node/.ssh,readonly,type=bind"
   ],
   "postStartCommand": "./.devcontainer/postStartCommand.sh",
-  "remoteUser": "fessiordev"
+  "remoteUser": "node"
 }

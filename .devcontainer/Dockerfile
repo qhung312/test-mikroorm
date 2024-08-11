@@ -24,21 +24,13 @@ RUN apt-get install -y \
 
 # USER ${USERNAME}
 
-# In case the image comes with a non-root user, rename it for development use.
+# In case the image comes with a non-root user, use it instead.
 
 ARG UID=1000
 ARG GID=1000
-ARG DEFAULT_USERNAME='node'
-ARG NEW_USERNAME='fessiordev'
+ARG USERNAME='node'
 
-RUN usermod -l ${NEW_USERNAME} ${DEFAULT_USERNAME}
-RUN groupmod -n ${NEW_USERNAME} ${DEFAULT_USERNAME}
-
-RUN echo "${NEW_USERNAME} ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
-
-USER root
-RUN mkdir /workspace && \
-  chown ${NEW_USERNAME}:${NEW_USERNAME} /workspace
+RUN echo "${USERNAME} ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 USER ${NEW_USERNAME}
 
